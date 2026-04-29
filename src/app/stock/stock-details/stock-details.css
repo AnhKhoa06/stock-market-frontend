@@ -209,3 +209,45 @@
   height: 64px;
   color: #d1d5db;
 }
+
+@media (max-width: 768px) {
+  .details-page {
+    padding: 16px 14px;
+    max-width: 100%;
+  }
+
+  .header-title {
+    font-size: 22px;
+  }
+
+  /* Cards: 2 cột thay vì 4 */
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card-value {
+    font-size: 17px;
+  }
+
+  /* Info section */
+  .details-info {
+    padding: 16px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 12px 0;
+  }
+
+  .info-val {
+    font-size: 14px;
+  }
+}

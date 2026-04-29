@@ -22,7 +22,12 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container" autosize>
-    <mat-sidenav [opened]="sidenavOpened()" mode="side" class="app-sidenav">
+    <mat-sidenav
+      [opened]="sidenavOpened()"
+      [mode]="isMobile() ? 'over' : 'side'"
+      class="app-sidenav"
+      (closedStart)="sidenavOpened.set(false)"
+    >
       <div class="sidenav-header">
         <mat-icon class="sidenav-logo-icon">trending_up</mat-icon>
         <span>StockMarket</span>

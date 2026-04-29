@@ -126,6 +126,8 @@
 .page-content {
   padding: 20px 15px;
   box-sizing: border-box;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
 }
 
 /* ===== Responsive ===== */
@@ -143,10 +145,6 @@ mat-sidenav-content {
   transition:
     transform 0.3s ease,
     width 0.3s ease;
-}
-
-.page-content {
-  transition: all 0.3s ease;
 }
 
 .sidenav-footer {
@@ -277,5 +275,33 @@ mat-sidenav-content {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-toolbar {
+    height: 64px;
+    padding: 0 12px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+  .sidenav-container {
+    height: calc(100vh - 64px);
+  }
+
+  .app-sidenav {
+    width: 260px;
+  }
+
+  .page-content {
+    padding: 12px 10px;
+  }
+
+  .logout-dialog {
+    width: 90%;
+    padding: 24px 20px;
   }
 }

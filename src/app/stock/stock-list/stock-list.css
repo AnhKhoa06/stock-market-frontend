@@ -433,3 +433,82 @@ input[type='checkbox'] {
 .btn-close:hover {
   background: #e5e7eb;
 }
+
+@media (max-width: 768px) {
+  .page-header {
+    margin: 16px 0 20px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .search-container {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .btn-new-stock {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Table scroll ngang */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  th,
+  td {
+    padding: 10px 10px;
+    font-size: 13px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .action-buttons button {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  /* Pagination */
+  .pagination {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 12px;
+  }
+
+  .btn-page {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .btn-prev span,
+  .btn-next span {
+    display: none;
+  }
+
+  /* Dialog */
+  .dialog {
+    width: 95vw;
+    padding: 20px 16px;
+    margin-top: 0;
+  }
+}

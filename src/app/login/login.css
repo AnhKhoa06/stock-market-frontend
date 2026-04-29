@@ -56,7 +56,6 @@
 /* ==================== INPUT ==================== */
 .input-group {
   margin-bottom: 24px;
-  width: 384px;
 }
 
 .input-label {
@@ -82,6 +81,7 @@
 
 .input-wrapper input {
   width: 100%;
+  box-sizing: border-box; /* thêm dòng này */
   height: 52px;
   padding: 0 16px 0 48px;
   font-size: 16px;
@@ -149,4 +149,35 @@
 
 .register-link a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    transform: translateY(20px);
+    padding: 16px;
+    min-height: 100dvh;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+
+  .login-card {
+    padding: 28px 20px;
+    border-radius: 12px;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .header-text h2 {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .input-wrapper input {
+    font-size: 16px;
+  }
 }

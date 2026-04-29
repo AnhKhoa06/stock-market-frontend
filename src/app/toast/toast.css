@@ -153,3 +153,18 @@
     width: 0%;
   }
 }
+
+@media (max-width: 480px) {
+  .toast-container {
+    top: 60px;
+    right: 8px;
+    left: auto;
+    width: calc(100% - 16px);
+    max-width: 320px;
+  }
+
+  .toast {
+    min-width: unset;
+    max-width: 100%;
+  }
+}

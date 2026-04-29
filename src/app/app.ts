@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, HostListener } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet, NavigationEnd } from '@angular/router';
 import { ToastComponent } from './toast/toast';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -35,6 +35,15 @@ import { ToastService } from './stock/services/toast.service';
 export class App implements OnInit {
   sidenavOpened = signal(true);
   isAuthPage = signal(true); // Mặc định là trang Login/Register
+  isMobile = signal(false);
+
+  @HostListener('window:resize')
+  onResize() {
+    this.isMobile.set(window.innerWidth <= 768);
+    if (this.isMobile()) {
+      this.sidenavOpened.set(false);
+    }
+  }
 
   navItems = [
     { label: 'Profile', icon: 'person', route: '/profile' },
@@ -53,11 +62,18 @@ export class App implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.isMobile.set(window.innerWidth <= 768);
+    this.sidenavOpened.set(!this.isMobile()); // desktop mở, mobile đóng
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const url = event.urlAfterRedirects;
-        // Chỉ ẩn header + sidenav khi đang ở trang Login hoặc Register
         this.isAuthPage.set(url === '/login' || url === '/register');
+
+        // tự đóng sidenav sau khi navigate trên mobile
+        if (this.isMobile()) {
+          this.sidenavOpened.set(false);
+        }
       }
     });
   }
