@@ -1,0 +1,11 @@
+<div style="border: 1px solid black; padding: 10px; margin: 10px">
+  <h3>{{ stock.name }} ({{ stock.code }})</h3>
+
+  <p>{{ stock.exchange }}</p>
+
+  <p [style.color]="stock.price > stock.previousPrice ? 'green' : 'red'">$ {{ stock.price }}</p>
+
+  <button (click)="toggleFavorite()">
+    {{ stock.favorite ? 'Remove Favorite' : 'Add to Favorite' }}
+  </button>
+</div>

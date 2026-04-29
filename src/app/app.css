@@ -1,0 +1,281 @@
+/* ===== Toolbar ===== */
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 90px;
+  min-height: 50px !important;
+  background: linear-gradient(to right, #4071a1, #2a3a4a) !important;
+  padding: 0 16px 0 8px;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 8px;
+}
+
+.brand-icon {
+  font-size: 28px !important;
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.top-nav a[mat-button] {
+  color: white !important;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 15px;
+  transition: 0.35s all ease;
+}
+
+.top-nav a[mat-button]:hover {
+  background: #3498db;
+  transform: scale(1.05);
+}
+
+.top-nav a.active-link {
+  background: #3498db;
+}
+
+.active-link {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px;
+}
+
+/* ===== Sidenav Layout — CORE FIX ===== */
+.sidenav-container {
+  height: calc(100vh - 90px); /* khớp với height toolbar */
+}
+
+.app-sidenav {
+  width: 275px;
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+}
+
+.sidenav-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 16px 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2a3a4a;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.sidenav-logo-icon {
+  color: #4071a1;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.app-sidenav .mat-mdc-list-item {
+  color: #333333 !important;
+  border-radius: 6px !important;
+  margin: 3px 8px !important;
+  width: auto !important;
+  transition: background 0.2s;
+}
+
+.app-sidenav .mat-mdc-list-item:hover {
+  background: #f0f4f8 !important;
+  color: #4071a1 !important;
+}
+
+.app-sidenav .active-sidenav-link {
+  background: #e3f0fb !important;
+  color: #1a5fa8 !important;
+  font-weight: 600;
+}
+
+.app-sidenav .mat-icon {
+  color: #1265b8 !important;
+}
+
+/* ===== Page content — CORE FIX ===== */
+/* mat-sidenav-content tự co lại đúng cách,
+   KHÔNG set width/overflow ở đây */
+.page-content {
+  padding: 20px 15px;
+  box-sizing: border-box;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .top-nav {
+    display: none;
+  }
+}
+
+mat-sidenav-content {
+  transition: margin-left 0.3s ease !important;
+}
+
+.app-sidenav {
+  transition:
+    transform 0.3s ease,
+    width 0.3s ease;
+}
+
+.page-content {
+  transition: all 0.3s ease;
+}
+
+.sidenav-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+}
+
+.logout-item {
+  color: #ef4444 !important;
+  cursor: pointer !important;
+}
+
+.logout-item mat-icon {
+  color: #ef4444 !important;
+}
+
+.logout-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  animation: fadeIn 0.2s ease;
+}
+
+.logout-dialog {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 36px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.logout-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fee2e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.logout-icon-wrap mat-icon {
+  color: #ef4444;
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.logout-dialog h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px;
+}
+
+.logout-dialog p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 24px;
+}
+
+.logout-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-cancel {
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+  background: #f3f4f6;
+}
+
+.btn-confirm {
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-confirm:hover {
+  background: #dc2626;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

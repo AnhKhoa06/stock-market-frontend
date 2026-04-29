@@ -1,0 +1,59 @@
+<h1 class="title">Create Stock Form</h1>
+
+<form #stockForm="ngForm" (ngSubmit)="createStock()">
+  <!-- name -->
+  <p>The following element changes from green to red when it is invalid</p>
+  <input
+    name="name"
+    required
+    [(ngModel)]="stock.name"
+    #name="ngModel"
+    [ngClass]="name.valid ? 'valid' : 'invalid'"
+    placeholder="Stock Name"
+  />
+
+  <!-- code -->
+  <p>The following element changes from green to red when it has been modified</p>
+  <input
+    name="code"
+    [(ngModel)]="stock.code"
+    #code="ngModel"
+    [ngClass]="code.dirty ? 'invalid' : 'valid'"
+    placeholder="Code"
+  />
+
+  <!-- price -->
+  <p>The following element changes from green to red when it is visited by the user</p>
+  <input
+    type="number"
+    name="price"
+    [(ngModel)]="stock.price"
+    #price="ngModel"
+    [ngClass]="price.touched ? 'invalid' : 'valid'"
+  />
+
+  <!-- Exchange -->
+  <select name="exchange" [(ngModel)]="stock.exchange">
+    <option *ngFor="let ex of exchanges" [value]="ex">
+      {{ ex }}
+    </option>
+  </select>
+
+  <br /><br />
+  <label>
+    <input type="checkbox" [(ngModel)]="confirmed" name="confirm" />
+    I confirm that the information provided above is accurate!
+  </label>
+
+  <br /><br />
+  <button type="submit">Create</button>
+</form>
+<br />
+
+<h3>Stock Name is {{ stock | json }}</h3>
+<p>Data has been confirmed: {{ confirmed }}</p>
+
+<h2>Stock List</h2>
+<div *ngFor="let s of stockList">
+  <p>Name: {{ s.name }} | Code: {{ s.code }} | Price: {{ s.price }} | Exchange: {{ s.exchange }}</p>
+</div>

@@ -1,0 +1,61 @@
+<div class="register-container">
+  <div class="register-card">
+    <!-- Header -->
+    <div class="register-header">
+      <mat-icon class="header-icon">person_add</mat-icon>
+      <div class="header-text">
+        <h2>Đăng ký</h2>
+        <p class="subtitle">Tạo tài khoản để bắt đầu theo dõi cổ phiếu</p>
+      </div>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <!-- Username -->
+      <div class="input-group">
+        <label class="input-label">Tên người dùng</label>
+        <div class="input-wrapper">
+          <mat-icon class="input-icon">person</mat-icon>
+          <input type="text" placeholder="Nhập tên người dùng" formControlName="username" />
+        </div>
+        <div *ngIf="username?.touched && username?.invalid" class="error-msg">
+          Tên người dùng là bắt buộc
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <label class="input-label">Mật khẩu</label>
+        <div class="input-wrapper">
+          <mat-icon class="input-icon">lock</mat-icon>
+          <input type="password" placeholder="Nhập mật khẩu" formControlName="password" />
+        </div>
+        <div *ngIf="password?.touched && password?.invalid" class="error-msg">
+          Mật khẩu là bắt buộc
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="input-group">
+        <label class="input-label">Xác nhận mật khẩu</label>
+        <div class="input-wrapper">
+          <mat-icon class="input-icon">lock</mat-icon>
+          <input
+            type="password"
+            placeholder="Nhập lại mật khẩu"
+            formControlName="confirmPassword"
+          />
+        </div>
+        <div *ngIf="confirmPassword?.touched && confirmPassword?.invalid" class="error-msg">
+          Xác nhận mật khẩu là bắt buộc
+        </div>
+      </div>
+
+      <button type="submit" class="register-btn">Đăng ký</button>
+    </form>
+
+    <div class="login-link">
+      Đã có tài khoản?
+      <a routerLink="/login" class="login-btn-link">Đăng nhập ngay</a>
+    </div>
+  </div>
+</div>

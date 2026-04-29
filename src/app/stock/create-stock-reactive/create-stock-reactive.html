@@ -1,0 +1,75 @@
+<h1 class="app-title">
+  <mat-icon class="title-icon">add_circle</mat-icon>
+  Tạo cổ phiếu mới
+</h1>
+
+<form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
+  <p *ngIf="successMessage">{{ successMessage }}</p>
+
+  <!-- Stock Name -->
+  <div class="form-group">
+    <div class="field-header">
+      <mat-icon class="field-icon">inventory</mat-icon>
+      <span class="field-title">Stock Name</span>
+    </div>
+    <input type="text" placeholder=" " formControlName="name" />
+    <!-- placeholder=" " quan trọng -->
+    <label class="form-label">Stock Name</label>
+    <div class="error-msg" *ngIf="name?.invalid && (name?.dirty || name?.touched || submitted)">
+      Stock Name is Mandatory
+    </div>
+  </div>
+
+  <!-- Stock Code -->
+  <div class="form-group">
+    <div class="field-header">
+      <mat-icon class="field-icon">code</mat-icon>
+      <span class="field-title">Stock Code</span>
+    </div>
+    <input type="text" placeholder=" " formControlName="code" />
+    <label class="form-label">Stock Code</label>
+    <div class="error-msg" *ngIf="code?.invalid && (code?.dirty || code?.touched || submitted)">
+      <div *ngIf="code?.errors?.['required']">Stock code is Mandatory</div>
+      <div *ngIf="code?.errors?.['minlength']">Min 2 chars</div>
+    </div>
+  </div>
+
+  <!-- Stock Price -->
+  <div class="form-group">
+    <div class="field-header">
+      <mat-icon class="field-icon">attach_money</mat-icon>
+      <span class="field-title">Stock Price</span>
+    </div>
+    <input type="number" placeholder="Stock Price" formControlName="price" />
+    <div class="error-msg" *ngIf="price?.invalid && (price?.dirty || price?.touched || submitted)">
+      Price must be ≥ 0
+    </div>
+  </div>
+
+  <!-- Exchange -->
+  <div class="form-group">
+    <div class="field-header">
+      <mat-icon class="field-icon">business</mat-icon>
+      <span class="field-title">Exchange</span>
+    </div>
+    <select formControlName="exchange">
+      <option value="NASDAQ">NASDAQ</option>
+      <option value="NYSE">NYSE</option>
+    </select>
+  </div>
+
+  <div class="confirm-group">
+    <label>
+      <input type="checkbox" formControlName="confirm" />
+      I confirm that the information provided above is accurate!
+    </label>
+  </div>
+  <div
+    class="error-msg"
+    *ngIf="confirm?.invalid && (confirm?.dirty || confirm?.touched || submitted)"
+  >
+    You must confirm this
+  </div>
+
+  <button type="submit">Create</button>
+</form>

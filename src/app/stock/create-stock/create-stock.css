@@ -1,0 +1,24 @@
+input,
+select {
+  display: block;
+  margin-bottom: 5px;
+  padding: 6px;
+  width: 250px;
+}
+
+.valid {
+  background-color: #c8f7c5;
+}
+
+.invalid {
+  background-color: #ffcdd2;
+}
+
+.title {
+  margin-bottom: 45px;
+  font-size: 25px;
+  color: #000000;
+  text-align: center;
+  margin-top: 35px;
+  margin-left: -190px;
+}

@@ -1,0 +1,145 @@
+<div class="page-header">
+  <div>
+    <p class="page-label">QUẢN LÝ</p>
+    <h1 class="page-title">
+      <mat-icon class="title-icon">list_alt</mat-icon>
+      Danh sách cổ phiếu
+    </h1>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="search-container">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input type="text" placeholder="Tìm kiếm tên hoặc mã cổ phiếu" (input)="onSearch($event)" />
+  </div>
+  <button class="btn-new-stock" routerLink="/stocks/create">
+    <mat-icon>add</mat-icon>
+    New Stock
+  </button>
+</div>
+
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Tên cổ phiếu</th>
+        <th>Mã</th>
+        <th>Sàn</th>
+        <th>Giá hiện tại</th>
+        <th>Biến động</th>
+        <th>Yêu thích</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of pagedStocks">
+        <td class="td-name">{{ stock.name }}</td>
+        <td>
+          <span class="code-badge">{{ stock.code }}</span>
+        </td>
+        <td>
+          <span class="exchange-badge">{{ stock.exchange }}</span>
+        </td>
+        <td
+          class="td-price"
+          [class.price-up]="stock.isPositiveChange()"
+          [class.price-down]="!stock.isPositiveChange()"
+        >
+          ${{ stock.price }}
+        </td>
+        <td>
+          <span
+            class="change-badge"
+            [class.change-up]="stock.isPositiveChange()"
+            [class.change-down]="!stock.isPositiveChange()"
+          >
+            <mat-icon>{{ stock.isPositiveChange() ? 'trending_up' : 'trending_down' }}</mat-icon>
+            {{ stock.isPositiveChange() ? 'Tăng' : 'Giảm' }}
+          </span>
+        </td>
+        <td style="text-align: center">
+          <input
+            type="checkbox"
+            [checked]="stock['favorite'] || false"
+            (change)="toggleFavorite(stock, $event)"
+          />
+        </td>
+        <td class="action-buttons">
+          <button class="btn-delete" (click)="deleteStock(stock.id)">
+            <mat-icon>delete</mat-icon>
+            Xóa
+          </button>
+          <button class="btn-update" (click)="openUpdate(stock)">
+            <mat-icon>edit</mat-icon>
+            Sửa
+          </button>
+          <button class="btn-detail" [routerLink]="['/stocks/details', stock.id]">
+            <mat-icon>visibility</mat-icon>
+            Chi tiết
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Phân trang -->
+  <div class="pagination">
+    <span class="page-info">Trang {{ currentPage }} / {{ totalPages }}</span>
+    <div class="page-controls">
+      <button
+        class="btn-page btn-prev"
+        (click)="goToPage(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        <mat-icon>chevron_left</mat-icon> Previous
+      </button>
+      @for (page of pageNumbers; track page) {
+        <button
+          class="btn-page btn-number"
+          [class.active]="page === currentPage"
+          (click)="goToPage(page)"
+        >
+          {{ page }}
+        </button>
+      }
+      <button
+        class="btn-page btn-next"
+        (click)="goToPage(currentPage + 1)"
+        [disabled]="currentPage === totalPages"
+      >
+        Next <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Dialog -->
+<div *ngIf="selectedStock" class="dialog-overlay">
+  <div class="dialog">
+    <h2>{{ isUpdateMode ? 'Cập nhật cổ phiếu' : 'Chi tiết cổ phiếu' }}</h2>
+
+    <div *ngIf="!isUpdateMode">
+      <p><strong>Tên:</strong> {{ selectedStock.name }}</p>
+      <p><strong>Mã:</strong> {{ selectedStock.code }}</p>
+      <p><strong>Sàn:</strong> {{ selectedStock.exchange }}</p>
+      <p><strong>Giá:</strong> ${{ selectedStock.price }}</p>
+      <p><strong>Biến động:</strong> {{ selectedStock.isPositiveChange() ? 'Tăng' : 'Giảm' }}</p>
+      <p><strong>Yêu thích:</strong> {{ selectedStock['favorite'] ? 'Có' : 'Không' }}</p>
+    </div>
+
+    <div *ngIf="isUpdateMode">
+      <label>Tên: <input [(ngModel)]="editingStock!.name" /></label><br />
+      <label>Mã: <input [(ngModel)]="editingStock!.code" disabled /></label><br />
+      <label>Giá: <input type="number" [(ngModel)]="editingStock!.price" /></label><br />
+      <label>Sàn: <input [(ngModel)]="editingStock!.exchange" /></label><br />
+    </div>
+
+    <div class="dialog-actions">
+      <button *ngIf="isUpdateMode" (click)="saveUpdate()" class="btn-save">
+        <mat-icon>save</mat-icon> Lưu thay đổi
+      </button>
+      <button (click)="closeDialog()" class="btn-close"><mat-icon>close</mat-icon> Đóng</button>
+    </div>
+  </div>
+</div>

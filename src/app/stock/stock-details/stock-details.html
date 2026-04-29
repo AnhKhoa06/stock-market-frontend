@@ -1,0 +1,83 @@
+<div *ngIf="!loading && stock" class="details-page">
+  <div class="details-header">
+    <button class="btn-back" (click)="backToList()">
+      <mat-icon>arrow_back</mat-icon>
+      Quay lại
+    </button>
+    <div class="header-text">
+      <p class="header-label">CHI TIẾT CỔ PHIẾU</p>
+      <h1 class="header-title">{{ stock.name }}</h1>
+      <span class="badge-exchange">{{ stock.exchange }}</span>
+    </div>
+  </div>
+
+  <div class="details-grid">
+    <!-- Card giá -->
+    <div class="card card-price">
+      <div class="card-icon-wrap price-icon">
+        <mat-icon>attach_money</mat-icon>
+      </div>
+      <p class="card-label">Giá hiện tại</p>
+      <p class="card-value price">${{ stock.price }}</p>
+    </div>
+
+    <div class="card card-prev">
+      <div class="card-icon-wrap prev-icon">
+        <mat-icon>history</mat-icon>
+      </div>
+      <p class="card-label">Giá trước đó</p>
+      <p class="card-value">${{ stock.previousPrice }}</p>
+    </div>
+
+    <!-- Card thay đổi -->
+    <div class="card card-change" [ngClass]="stock.isPositiveChange() ? 'positive' : 'negative'">
+      <div class="card-icon-wrap change-icon">
+        <mat-icon>{{ stock.isPositiveChange() ? 'trending_up' : 'trending_down' }}</mat-icon>
+      </div>
+      <p class="card-label">Biến động</p>
+      <p class="card-value">{{ stock.isPositiveChange() ? '↑ Tăng' : '↓ Giảm' }}</p>
+    </div>
+
+    <!-- Card yêu thích -->
+    <div class="card card-favorite">
+      <div class="card-icon-wrap fav-icon">
+        <mat-icon>{{ stock['favorite'] ? 'favorite' : 'favorite_border' }}</mat-icon>
+      </div>
+      <p class="card-label">Yêu thích</p>
+      <p class="card-value">{{ stock['favorite'] ? 'Đã thêm' : 'Chưa thêm' }}</p>
+    </div>
+  </div>
+
+  <!-- Thông tin chi tiết -->
+  <div class="details-info">
+    <h2 class="info-title">Thông tin cơ bản</h2>
+    <div class="info-grid">
+      <div class="info-row">
+        <span class="info-key"><mat-icon>label</mat-icon> Tên cổ phiếu</span>
+        <span class="info-val">{{ stock.name }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key"><mat-icon>qr_code</mat-icon> Mã cổ phiếu</span>
+        <span class="info-val code-badge">{{ stock.code }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key"><mat-icon>business</mat-icon> Sàn giao dịch</span>
+        <span class="info-val">{{ stock.exchange }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key"><mat-icon>show_chart</mat-icon> Trạng thái</span>
+        <span class="info-val" [ngClass]="stock.isPositiveChange() ? 'text-green' : 'text-red'">
+          {{ stock.isPositiveChange() ? '↑ Tăng' : '↓ Giảm' }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loading && !stock" class="not-found">
+  <mat-icon class="not-found-icon">search_off</mat-icon>
+  <p>Không tìm thấy cổ phiếu</p>
+  <button class="btn-back" (click)="backToList()">
+    <mat-icon>arrow_back</mat-icon> Quay lại danh sách
+  </button>
+</div>

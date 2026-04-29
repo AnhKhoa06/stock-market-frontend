@@ -1,0 +1,200 @@
+{
+  "stocks": [
+    {
+      "name": "Test Stock Company",
+      "code": "TSC",
+      "price": 555,
+      "previousPrice": 80,
+      "exchange": "NASDAQ",
+      "favorite": false,
+      "id": "1"
+    },
+    {
+      "name": "Second Stock Company",
+      "code": "SSC",
+      "price": 10,
+      "previousPrice": 20,
+      "exchange": "NSE",
+      "favorite": false,
+      "id": "2"
+    },
+    {
+      "name": "Last Stock Company",
+      "code": "LSC",
+      "price": 666,
+      "previousPrice": 765,
+      "exchange": "NYSE",
+      "favorite": false,
+      "id": "3"
+    },
+    {
+      "name": "HIEUTHUHAI",
+      "code": "HTH",
+      "price": 678,
+      "previousPrice": 99,
+      "exchange": "NYSE",
+      "favorite": false,
+      "id": "Q9NkKA3Ksyk"
+    },
+    {
+      "name": "Juky Sannnn",
+      "code": "JKS",
+      "price": 987,
+      "previousPrice": 987,
+      "exchange": "NASDAQ",
+      "favorite": false,
+      "id": "ZLzSEYNBoqA"
+    },
+    {
+      "name": "FPT Software",
+      "code": "FPT",
+      "price": 989,
+      "previousPrice": 989,
+      "exchange": "NYSE",
+      "favorite": false,
+      "id": "otu2xPAsgE4"
+    },
+    {
+      "name": "ASP.NET Core",
+      "code": "NET",
+      "price": 999,
+      "previousPrice": 889,
+      "exchange": "NASDAQ",
+      "favorite": false,
+      "id": "8NVN5sVcIEU"
+    },
+    {
+      "name": "NVIDIA Corporation",
+      "code": "NVDA1",
+      "price": 111,
+      "previousPrice": 111,
+      "exchange": "NASDAQ",
+      "favorite": false,
+      "id": "63NVU41DpZc"
+    },
+    {
+      "name": "NVIDIA Corporation1",
+      "code": "NVDA2",
+      "price": 222,
+      "previousPrice": 222,
+      "exchange": "NYSE",
+      "favorite": false,
+      "id": "CnFOS2u7ZyQ"
+    },
+    {
+      "name": "NVIDIA Corporation3",
+      "code": "NVDA2",
+      "price": 333,
+      "previousPrice": 333,
+      "exchange": "NASDAQ",
+      "favorite": false,
+      "id": "Jq5zagOz760"
+    },
+    {
+      "name": "NVIDIA Corporation",
+      "code": "NVDA4",
+      "price": 444,
+      "previousPrice": 444,
+      "exchange": "NYSE",
+      "favorite": false,
+      "id": "yYrIRyKV-HA"
+    },
+    {
+      "name": "NVIDIA Corporation4",
+      "code": "NVDA3",
+      "price": 555,
+      "previousPrice": 555,
+      "exchange": "NASDAQ",
+      "favorite": false,
+      "id": "wkysRzuYlVo"
+    },
+    {
+      "name": "NVIDIA Corporation",
+      "code": "NVDA5",
+      "price": 666,
+      "previousPrice": 666,
+      "exchange": "NYSE",
+      "favorite": false,
+      "id": "gdKOw7kM-T4"
+    },
+    {
+      "name": "NVIDIA Corporation6",
+      "code": "NVDA6",
+      "price": 565,
+      "previousPrice": 565,
+      "exchange": "NASDAQ",
+      "favorite": false,
+      "id": "1d4F-mnhhnk"
+    },
+    {
+      "name": "NVIDIA Corporation",
+      "code": "NVDA9",
+      "price": 878,
+      "previousPrice": 878,
+      "exchange": "NASDAQ",
+      "favorite": false,
+      "id": "IWEgnvFe7Xg"
+    },
+    {
+      "name": "NVIDIA Corporation9",
+      "code": "NVDA0",
+      "price": 989,
+      "previousPrice": 989,
+      "exchange": "NYSE",
+      "favorite": false,
+      "id": "PFJ6F4mR8cE"
+    },
+    {
+      "name": "NVIDIA Corporation",
+      "code": "NVDA6",
+      "price": 797,
+      "previousPrice": 797,
+      "exchange": "NYSE",
+      "favorite": false,
+      "id": "mLDHdA7v7Zs"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "username": "anhkhoa",
+      "password": "123456"
+    },
+    {
+      "username": "admin1",
+      "password": "1234567",
+      "id": "WEUCbJaSzN8"
+    },
+    {
+      "username": "khoadz",
+      "password": "123456",
+      "id": "9JVtjOTzKDw"
+    },
+    {
+      "username": "khoadeptrai",
+      "password": "123456",
+      "id": "Qjysn8q4QWY"
+    },
+    {
+      "username": "khoadzvcl",
+      "password": "123456",
+      "id": "N-L-4rdpByw"
+    },
+    {
+      "username": "lichlon",
+      "password": "000000",
+      "id": "RaUpixg4MIg"
+    },
+    {
+      "username": "taotenkhoa",
+      "password": "123456",
+      "id": "ubokAzXRMJc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

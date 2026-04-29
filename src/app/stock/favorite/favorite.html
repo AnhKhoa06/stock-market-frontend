@@ -1,0 +1,93 @@
+<div class="page-header">
+  <div>
+    <p class="page-label">DANH SÁCH</p>
+    <h1 class="page-title">
+      <mat-icon class="title-icon">favorite</mat-icon>
+      Cổ phiếu yêu thích
+    </h1>
+  </div>
+</div>
+
+<div class="table-wrapper">
+  <div *ngIf="stocks.length === 0" class="empty-state">
+    <mat-icon class="empty-icon">favorite_border</mat-icon>
+    <p>Chưa có cổ phiếu yêu thích nào</p>
+  </div>
+
+  <table *ngIf="stocks.length > 0">
+    <thead>
+      <tr>
+        <th>Tên cổ phiếu</th>
+        <th>Mã</th>
+        <th>Sàn</th>
+        <th>Giá hiện tại</th>
+        <th>Biến động</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of pagedStocks">
+        <td class="td-name">{{ stock.name }}</td>
+        <td>
+          <span class="code-badge">{{ stock.code }}</span>
+        </td>
+        <td>
+          <span class="exchange-badge">{{ stock.exchange }}</span>
+        </td>
+        <td
+          class="td-price"
+          [class.price-up]="stock.isPositiveChange()"
+          [class.price-down]="!stock.isPositiveChange()"
+        >
+          ${{ stock.price }}
+        </td>
+        <td>
+          <span
+            class="change-badge"
+            [class.change-up]="stock.isPositiveChange()"
+            [class.change-down]="!stock.isPositiveChange()"
+          >
+            <mat-icon>{{ stock.isPositiveChange() ? 'trending_up' : 'trending_down' }}</mat-icon>
+            {{ stock.isPositiveChange() ? 'Tăng' : 'Giảm' }}
+          </span>
+        </td>
+        <td class="action-buttons">
+          <button class="btn-detail" [routerLink]="['/stocks/details', stock.id]">
+            <mat-icon>visibility</mat-icon>
+            Chi tiết
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Phân trang -->
+  <div class="pagination" *ngIf="stocks.length > 0">
+    <span class="page-info">Trang {{ currentPage }} / {{ totalPages }}</span>
+    <div class="page-controls">
+      <button
+        class="btn-page btn-prev"
+        (click)="goToPage(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        <mat-icon>chevron_left</mat-icon> Previous
+      </button>
+      @for (page of pageNumbers; track page) {
+        <button
+          class="btn-page btn-number"
+          [class.active]="page === currentPage"
+          (click)="goToPage(page)"
+        >
+          {{ page }}
+        </button>
+      }
+      <button
+        class="btn-page btn-next"
+        (click)="goToPage(currentPage + 1)"
+        [disabled]="currentPage === totalPages"
+      >
+        Next <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

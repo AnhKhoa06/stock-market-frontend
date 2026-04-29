@@ -1,0 +1,67 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+  background: #f5f7fa;
+}
+
+.title {
+  margin-bottom: 23px;
+  font-size: 23px;
+  color: #000000;
+  margin-left: -197px;
+}
+
+.stock-container {
+  border: 1.6px solid #181717;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background: white;
+  text-align: left;
+  margin-left: -130px;
+}
+
+.name {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+button {
+  padding: 8px 18px;
+  border-radius: 5px;
+  border: none;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+:host {
+  display: block;
+}
+
+div {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #f9f9f9;
+}

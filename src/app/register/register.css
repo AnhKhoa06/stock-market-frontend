@@ -1,0 +1,144 @@
+.register-container {
+  background: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+  transform: translateY(24px);
+}
+
+.register-card {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 25px 36px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(70, 70, 70, 0.08);
+  text-align: left;
+  border: 1px solid #e2e8f0;
+  height: auto;
+}
+
+/* ==================== HEADER ==================== */
+.register-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.header-icon {
+  font-size: 35px !important;
+  width: 48px;
+  height: 48px;
+  color: #334155;
+  background: #f1f5f9;
+  padding: 8px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.header-text h2 {
+  margin: 0 0 6px 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e2937;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ==================== INPUT GROUP ==================== */
+.input-group {
+  margin-bottom: 24px;
+  width: 384px;
+}
+
+.input-label {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper mat-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 20px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px 0 48px;
+  font-size: 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Error Message */
+.error-msg {
+  font-size: 13px;
+  color: #ef4444;
+  margin-top: 6px;
+  padding-left: 4px;
+  font-weight: 500;
+}
+
+/* Button */
+.register-btn {
+  width: 100%;
+  height: 52px;
+  background: #1e2937;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+}
+
+.register-btn:hover {
+  background: #334155;
+}
+
+/* Link */
+.login-link {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 14.5px;
+  color: #64748b;
+}
+
+.login-link a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}

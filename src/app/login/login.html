@@ -1,0 +1,53 @@
+<div class="login-container">
+  <!--form này dùng reactform để lk vs loginform-->
+  <div class="login-card">
+    <!--lk trực tiếp  vs form trong TS-->
+    <div class="login-header">
+      <mat-icon class="header-icon">bar_chart</mat-icon>
+      <div class="header-text">
+        <h2>Đăng nhập</h2>
+        <p class="subtitle">Đăng nhập để truy cập dữ liệu cổ phiếu của bạn</p>
+      </div>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <!-- Username -->
+      <div class="input-group">
+        <label class="input-label">Tên người dùng</label>
+        <div class="input-wrapper">
+          <mat-icon class="input-icon">person</mat-icon>
+          <input type="text" placeholder="Nhập tên người dùng" formControlName="username" />
+        </div>
+        <div *ngIf="username?.touched && username?.invalid" class="error-msg">
+          Tên người dùng là bắt buộc
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <label class="input-label">Mật khẩu</label>
+        <div class="input-wrapper">
+          <mat-icon class="input-icon">lock</mat-icon>
+          <input type="password" placeholder="Nhập mật khẩu" formControlName="password" />
+        </div>
+        <div *ngIf="password?.touched && password?.invalid" class="error-msg">
+          Mật khẩu là bắt buộc
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-msg server-error">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="login-btn">
+        Đăng nhập
+        <mat-icon class="arrow-icon">arrow_forward</mat-icon>
+      </button>
+    </form>
+
+    <div class="register-link">
+      Chưa có tài khoản?
+      <a routerLink="/register" class="register-btn">Đăng ký ngay</a>
+    </div>
+  </div>
+</div>

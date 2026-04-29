@@ -1,0 +1,145 @@
+.app-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 40px 0;
+  color: #1f2937;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.title-icon {
+  font-size: 32px !important;
+  width: 32px;
+  height: 32px;
+  color: #3b82f6;
+}
+
+/* ==================== FORM STYLES ==================== */
+.form-group {
+  position: relative;
+  margin-bottom: 28px; /* thu gọn khoảng cách giữa các ô */
+  margin-top: -10px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  max-width: 420px;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Label nổi */
+.form-group .form-label {
+  position: absolute;
+  top: 51px;
+  left: 12px;
+  font-size: 16px;
+  color: #6b7280;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background-color: rgb(245, 247, 248);
+  padding: 0 6px;
+}
+
+.form-group input:focus + .form-label,
+.form-group input:not(:placeholder-shown) + .form-label {
+  top: 26px;
+  left: 15px;
+  font-size: 13px;
+  color: #3b82f6;
+}
+
+/* Error message */
+.error-msg {
+  font-size: 13px !important;
+  color: #ef4444 !important;
+  margin-top: 6px;
+  padding-left: 4px;
+  font-weight: 500;
+}
+
+/* Select Exchange - đồng đều kích thước */
+.form-group select {
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  max-width: 453.5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Checkbox */
+/* ==================== CHECKBOX & BUTTON ==================== */
+.confirm-group {
+  margin: 18px 0 0px 0; /* thu gọn khoảng cách */
+}
+
+.confirm-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.confirm-group input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: #3b82f6;
+}
+
+button {
+  background-color: #1340a3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 140px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 30px;
+}
+
+button:hover {
+  background-color: #1e3873;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Tiêu đề + Icon cho mỗi trường */
+.field-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #374151;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 13.5px;
+}
+
+.field-icon {
+  font-size: 20px !important;
+  width: 20px;
+  height: 20px;
+  color: #313132;
+}
