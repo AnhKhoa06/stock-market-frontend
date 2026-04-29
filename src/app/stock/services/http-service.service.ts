@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class HttpServiceService {
-  private REST_API_SERVER = 'https://localhost:7069/api';
+  private REST_API_SERVER = 'https://stock-market-backend-production-6d5f.up.railway.app/api';
   // private REST_API_SERVER = 'http://localhost:3000';
   private httpOptions = {
     headers: new HttpHeaders({
