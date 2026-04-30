@@ -148,6 +148,11 @@ button:hover {
   .form-group .form-label {
     background-color: white;
   }
+  .form-group input:focus + .form-label,
+  .form-group input:not(:placeholder-shown) + .form-label {
+    top: 30px;
+    background-color: white;
+  }
   .form-group:first-of-type {
     margin-top: 16px;
   }
