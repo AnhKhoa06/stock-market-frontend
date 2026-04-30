@@ -67,18 +67,22 @@ export class Login {
       },
     });
 
+    // this.loadingService.show();
     // this.userService.login(username!, password!).subscribe({
     //   next: (user) => {
     //     if (user) {
+    //       this.loadingService.hide();
     //       this.authService.login(username);
     //       this.router.navigate(['/stocks/list']).then(() => {
     //         this.toastService.show(`Đăng nhập thành công! Chào ${username}`, 'success');
     //       });
     //     } else {
+    //       this.loadingService.hide();
     //       this.toastService.show('Sai username hoặc password!', 'error');
     //     }
     //   },
     //   error: () => {
+    //     this.loadingService.hide();
     //     this.toastService.show('Lỗi kết nối server', 'error');
     //   },
     // });

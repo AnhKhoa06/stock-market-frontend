@@ -69,7 +69,7 @@
 
 /* ===== Sidenav Layout — CORE FIX ===== */
 .sidenav-container {
-  height: calc(100vh - 90px); /* khớp với height toolbar */
+  height: calc(100dvh - 90px); /* khớp với height toolbar */
 }
 
 .app-sidenav {
@@ -289,11 +289,22 @@ mat-sidenav-content {
   }
 
   .sidenav-container {
-    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
   }
 
   .app-sidenav {
     width: 260px;
+    height: 100%;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform-origin: left center !important;
+  }
+
+  .mat-drawer-transition .mat-drawer {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .mat-drawer-transition .mat-drawer-content {
+    transition: none !important;
   }
 
   .page-content {
@@ -301,7 +312,7 @@ mat-sidenav-content {
   }
 
   .logout-dialog {
-    width: 90%;
-    padding: 24px 20px;
+    width: 75%;
+    padding: 20px 15px;
   }
 }

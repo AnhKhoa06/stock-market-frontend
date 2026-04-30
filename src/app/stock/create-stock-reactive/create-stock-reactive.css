@@ -152,6 +152,7 @@ button:hover {
     max-width: 100%;
     overflow: hidden;
     box-sizing: border-box;
+    padding: 0 16px;
   }
   .app-title {
     font-size: 22px;

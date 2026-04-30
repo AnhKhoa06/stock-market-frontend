@@ -156,7 +156,7 @@
 
 @media (max-width: 480px) {
   .toast-container {
-    top: 60px;
+    top: 70px;
     right: 8px;
     left: auto;
     width: calc(100% - 16px);
