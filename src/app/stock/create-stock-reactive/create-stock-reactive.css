@@ -150,7 +150,7 @@ button:hover {
   }
   .form-group input:focus + .form-label,
   .form-group input:not(:placeholder-shown) + .form-label {
-    top: 32px;
+    top: 30px;
     background-color: white;
   }
   .form-group:first-of-type {
